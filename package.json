@@ -1,7 +1,7 @@
 {
   "name": "atom-rampcode",
   "main": "./lib/atom-rampcode",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Rampcode on Atom.",
   "keywords": [
     "livecoding",
