@@ -1,0 +1,35 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+body.rampcode {
+
+  atom-text-editor,
+  .scrollbars-visible-always ::-webkit-scrollbar-track,
+  .bottom *,
+  .footer *,
+  {
+    background-color: black;
+  }
+
+  .scrollbars-visible-always ::-webkit-scrollbar-thumb,
+  {
+    border-color: black;
+  }
+
+  .tab-bar,
+  .tab,
+  .selected,
+  .tree-view,
+  {
+    background-color: black !important;
+  }
+
+  .evalFlash,
+  {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+}

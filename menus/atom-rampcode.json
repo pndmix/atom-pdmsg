@@ -1,0 +1,34 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle atom-rampcode",
+        "command": "atom-rampcode:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "atom-rampcode",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "atom-rampcode:toggle"
+            },
+            {
+              "label": "EvaluateLine",
+              "command": "atom-rampcode:evalLine"
+            },
+            {
+              "label": "EvaluateBlock",
+              "command": "atom-rampcode:evalBlock"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
