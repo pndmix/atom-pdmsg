@@ -1,0 +1,130 @@
+'name': 'Rampcode'
+'scopeName': 'source.rampcode'
+'fileTypes': [
+  'ramp'
+]
+'patterns': [
+  {
+    'include': '#comments'
+  }
+  {
+    'match': '\\b[tW]\\b'
+    'name': 'constant.language.rampcode'
+  }
+  {
+    'match': '\\b([0-9A-F]+\\.[0-9A-F]+)|([0-9A-F]+\\.)|(\\.[0-9A-F])|\\b([0-9A-F]+)\\b'
+    'name': 'constant.numeric.rampcode'
+  }
+  {
+    'match': '\\b([cfdhplw][0-3]|r)\\b'
+    'name': 'storage.type.rampcode'
+  }
+  {
+    'match': '\\b[saI]\\b'
+    'name': 'entity.name.function.rampcode'
+  }
+  {
+    'match': '([#eixX][0-9A-F]{2})'
+    'name': 'support.function.rampcode'
+  }
+  {
+    'match': ':'
+    'name': 'keyword.operator.assignment.rampcode'
+  }
+  {
+    'match': '(&&|\\|\\|)'
+    'name': 'keyword.operator.logical.rampcode'
+  }
+  {
+    'match': '(&|\\||\\^|~|>>|<<)'
+    'name': 'keyword.operator.bitwise.rampcode'
+  }
+  {
+    'match': '(==|!=|<=|>=|<|>)'
+    'name': 'keyword.operator.comparison.rampcode'
+  }
+  {
+    'match': '(%|\\*|/|-|\\+)'
+    'name': 'keyword.operator.math.rampcode'
+  }
+  {
+    'include': '#strings'
+  }
+  {
+    'include': '#punctuation'
+  }
+]
+'repository':
+  'comments':
+    'patterns': [
+      {
+        'begin': '/\\*'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.begin.rampcode'
+        'end': '\\*/'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.end.rampcode'
+        'name': 'comment.block.rampcode'
+      }
+      {
+        'begin': '--'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.begin.rampcode'
+        'end': '$'
+        'name': 'comment.line.double-dash.rampcode'
+      }
+    ]
+  'strings':
+    'patterns': [
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.rampcode'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.rampcode'
+        'name': 'string.quoted.double.rampcode'
+      }
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.rampcode'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.rampcode'
+        'name': 'string.quoted.single.rampcode'
+      }
+    ]
+  'punctuation':
+    'patterns': [
+      {
+        'begin': '\\('
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.section.bracket.round.begin.rampcode'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.section.bracket.round.end.rampcode'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'match': '\\)'
+        'name': 'punctuation.unmatched.bracket.round.end.rampcode'
+      }
+      {
+        'match': ';'
+        'name': 'punctuation.terminator.statement.semicolon.rampcode'
+      }
+    ]
