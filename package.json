@@ -15,10 +15,5 @@
   "activationCommands": {
     "atom-workspace": "atom-rampcode:toggle"
   },
-  "dependencies": {
-    "atom-package-deps": "^4.6.2"
-  },
-  "package-deps": [
-    "language-rampcode"
-  ]
+  "dependencies": {}
 }
