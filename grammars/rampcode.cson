@@ -5,50 +5,25 @@
 ]
 'patterns': [
   {
-    'include': '#comments'
-  }
-  {
-    'match': '\\b[tW]\\b'
+    'match': '(\\$v1)\\b'
     'name': 'constant.language.rampcode'
   }
   {
-    'match': '\\b([0-9A-F]+\\.[0-9A-F]+)|([0-9A-F]+\\.)|(\\.[0-9A-F])|\\b([0-9A-F]+)\\b'
+    'match': '\\b([0-9]+\\.[0-9]+)|([0-9]+\\.)|(\\.[0-9])|\\b([0-9]+)\\b'
     'name': 'constant.numeric.rampcode'
   }
   {
-    'match': '\\b([cfdhplw][0-3]|r)\\b'
+    'match': '\\b(set|rec)\\b'
     'name': 'storage.type.rampcode'
   }
   {
-    'match': '\\b[saI]\\b'
-    'name': 'entity.name.function.rampcode'
+    'include': '#comments'
   }
   {
-    'match': '([#eixX][0-9A-F]{2})'
-    'name': 'support.function.rampcode'
+    'include': '#operators'
   }
   {
-    'match': ':'
-    'name': 'keyword.operator.assignment.rampcode'
-  }
-  {
-    'match': '(&&|\\|\\|)'
-    'name': 'keyword.operator.logical.rampcode'
-  }
-  {
-    'match': '(&|\\||\\^|~|>>|<<)'
-    'name': 'keyword.operator.bitwise.rampcode'
-  }
-  {
-    'match': '(==|!=|<=|>=|<|>)'
-    'name': 'keyword.operator.comparison.rampcode'
-  }
-  {
-    'match': '(%|\\*|/|-|\\+)'
-    'name': 'keyword.operator.math.rampcode'
-  }
-  {
-    'include': '#strings'
+    'include': '#functions'
   }
   {
     'include': '#punctuation'
@@ -77,29 +52,34 @@
         'name': 'comment.line.double-dash.rampcode'
       }
     ]
-  'strings':
+  'operators':
     'patterns': [
       {
-        'begin': '"'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.rampcode'
-        'end': '"'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.rampcode'
-        'name': 'string.quoted.double.rampcode'
+        'match': '(&&|\\|\\|)'
+        'name': 'keyword.operator.logical.rampcode'
       }
       {
-        'begin': '\''
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.string.begin.rampcode'
-        'end': '\''
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.string.end.rampcode'
-        'name': 'string.quoted.single.rampcode'
+        'match': '(&|\\||\\^|~|>>|<<)'
+        'name': 'keyword.operator.bitwise.rampcode'
+      }
+      {
+        'match': '(==|!=|<=|>=|<|>)'
+        'name': 'keyword.operator.comparison.rampcode'
+      }
+      {
+        'match': '(%|\\*|/|-|\\+)'
+        'name': 'keyword.operator.math.rampcode'
+      }
+    ]
+  'functions':
+    'patterns': [
+      {
+        'match': '\\b(if)\\b'
+        'name': 'keyword.control.rampcode'
+      }
+      {
+        'match': '\\b(int|rint|float|min|max|abs|floor|ceil|fmod|pow|sqrt|cbrt|exp|expm1|log|log1p|log10|fact|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh)\\b'
+        'name': 'support.function.rampcode'
       }
     ]
   'punctuation':
