@@ -10,7 +10,7 @@
   # base functions
   'if':
     'prefix': 'if'
-    'body': 'if($1\\\\,$2\\\\,$3)$4'
+    'body': 'if($1, $2, $3)$4'
   'int':
     'prefix': 'int'
     'body': 'int($1)$2'
@@ -22,10 +22,10 @@
     'body': 'float($1)$2'
   'min':
     'prefix': 'min'
-    'body': 'min($1\\\\,$2)$3'
+    'body': 'min($1, $2)$3'
   'max':
     'prefix': 'max'
-    'body': 'max($1\\\\,$2)$3'
+    'body': 'max($1, $2)$3'
   'absolute':
     'prefix': 'abs'
     'body': 'abs($1)$2'
@@ -42,7 +42,7 @@
   # power functions
   'power':
     'prefix': 'pow'
-    'body': 'pow($1\\\\,$2)$3'
+    'body': 'pow($1, $2)$3'
   'square root':
     'prefix': 'sqrt'
     'body': 'sqrt($1)$2'
@@ -89,7 +89,7 @@
     'body': 'atan($1)$2'
   'arc tangent of 2 variables':
     'prefix': 'atan2'
-    'body': 'atan2($1\\\\,$2)$3'
+    'body': 'atan2($1, $2)$3'
   'hyperbolic sine':
     'prefix': 'sinh'
     'body': 'sinh($1)$2'
