@@ -6,7 +6,7 @@
 'patterns': [
   {
     'match': '(\\$v1)\\b'
-    'name': 'constant.language.rampcode'
+    'name': 'entity.name.function.rampcode'
   }
   {
     'match': '\\b([0-9]+\\.[0-9]+)|([0-9]+\\.)|(\\.[0-9])|\\b([0-9]+)\\b'
