@@ -25,6 +25,10 @@
             {
               "label": "EvaluateBlock",
               "command": "atom-rampcode:evalBlock"
+            },
+            {
+              "label": "StopSound",
+              "command": "atom-rampcode:stopSound"
             }
           ]
         }
