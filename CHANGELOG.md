@@ -1,5 +1,9 @@
+## 0.3.0 - 2019-06-17
+* Added stop sound command
+* Added the description of tree-sitter grammar
+
 ## 0.2.2 - 2019-05-31
-* Update the highlight color and snippet (#2)
+* Updated the highlight color and snippet (#2)
 
 ## 0.2.1 - 2019-05-26
 * Fixed a bug of keymaps in Mac (#1)
