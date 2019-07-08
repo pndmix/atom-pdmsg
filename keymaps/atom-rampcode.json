@@ -1,5 +1,5 @@
 {
-  "atom-workspace atom-text-editor[data-grammar~='rampcode']:not([mini])": {
+  "atom-workspace atom-text-editor:not([mini])": {
     "ctrl-alt-r": "atom-rampcode:toggle",
     "shift-enter": "atom-rampcode:evalLine",
     "alt-enter": "atom-rampcode:evalBlock",
