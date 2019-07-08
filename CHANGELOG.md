@@ -1,3 +1,7 @@
+## 0.4.0 - 2019-07-08
+* Move snippets and grammar to language-rampcode package
+* Update for rampcode v1.0.0
+
 ## 0.3.0 - 2019-06-17
 * Added stop sound command
 * Added the description of tree-sitter grammar
