@@ -1,23 +1,24 @@
 # atom-rampcode
 Running [Rampcode](https://github.com/gabochi/rampcode) on Atom editor. Providing syntax highlighting, snippets and commands.
 
+![preview-image](https://raw.githubusercontent.com/pndmix/atom-rampcode/master/assets/atom-rampcode.gif)
+
 ## Setup
 ~~~bash
-# install package
-$ apm install atom-rampcode
-
-# not mandatory tree-sitter language package 
-$ apm install language-rampcode
+# install packages
+$ apm install atom-rampcode language-rampcode
 ~~~
 - Setup instruction for Rampcode can be found at [https://github.com/gabochi/rampcode](https://github.com/gabochi/rampcode).
 - If you haven't added **pdsend** to your PATH, add the path at this package's settings.  
 `File > Settings > Packages > atom-rampcode`
-- [language-rampcode](https://github.com/pndmix/atom-language-rampcode) solved that default syntax highlighting breaks after long lines of code.
+- [language-rampcode](https://github.com/pndmix/atom-language-rampcode) provides syntax highlighting and snippets.
 
 ## Usage
-You have to start the rampcode-XXX.pd proccess before execute the following commands.
-
-![preview-image](https://raw.githubusercontent.com/pndmix/atom-rampcode/master/assets/atom-rampcode.gif)
+### Flow
+1. Open the rampcode patch in PD.
+2. Enable atom-rampcode by running `toggle` on Atom.
+3. Edit your code in a **ramp** file.
+4. Press `shift-enter` or `alt-enter` to evaluate this.
 
 ### Key bindings
 | Binding | Command |
