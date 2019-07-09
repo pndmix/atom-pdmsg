@@ -1,3 +1,6 @@
+## 0.4.1 - 2019-07-09
+* Update style to flash only
+
 ## 0.4.0 - 2019-07-08
 * Move snippets and grammar to language-rampcode package
 * Update for rampcode v1.0.0
