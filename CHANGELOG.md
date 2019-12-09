@@ -1,3 +1,6 @@
+## 0.4.2 - 2019-12-09
+* Change comment line syntax from double-dash to double-slash
+
 ## 0.4.1 - 2019-07-09
 * Update style to flash only
 
