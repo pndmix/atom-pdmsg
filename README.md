@@ -32,4 +32,4 @@ $ apm install atom-rampcode language-rampcode
 - file extension is **.ramp**.
 - can be used some spaces and new lines in expression.
 - unnecessary with an escape character like this `\,`, enough only `,`.
-- supports comment syntax: `-- <message>` and `/* <message> */`.
+- supports comment syntax: `// <message>` and `/* <message> */`.
