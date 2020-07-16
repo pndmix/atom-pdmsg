@@ -1,0 +1,8 @@
+overrides:
+  - files:
+      - "*.ts"
+      - "*.less"
+    options:
+      trailingComma: es5
+      singleQuote: true
+      printWidth: 100
