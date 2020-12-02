@@ -1,7 +1,7 @@
 import { TextEditor, Range } from 'atom';
 
 export default class Editor {
-  private static getTextInRange(editor: TextEditor, range: Range): string {
+  private getTextInRange(editor: TextEditor, range: Range): string {
     const marker = editor.markBufferRange(range);
 
     editor.decorateMarker(marker, {
@@ -14,7 +14,7 @@ export default class Editor {
     return buffer.getTextInRange(range);
   }
 
-  static getLineOfText(): string {
+  getLineOfText(): string {
     const editor = atom.workspace.getActiveTextEditor();
     if (editor === undefined) return '';
 
@@ -26,7 +26,7 @@ export default class Editor {
     return this.getTextInRange(editor, range);
   }
 
-  static getBlockOfText(): string {
+  getBlockOfText(): string {
     const editor = atom.workspace.getActiveTextEditor();
     if (editor === undefined) return '';
 

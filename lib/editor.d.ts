@@ -1,6 +1,6 @@
 export default class Editor {
-    private static getTextInRange;
-    static getLineOfText(): string;
-    static getBlockOfText(): string;
+    private getTextInRange;
+    getLineOfText(): string;
+    getBlockOfText(): string;
 }
 //# sourceMappingURL=editor.d.ts.map
