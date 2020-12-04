@@ -1,0 +1,73 @@
+name: 'Pdmsg'
+scopeName: 'source.pdmsg'
+type: 'tree-sitter'
+parser: 'tree-sitter-pdmsg'
+
+fileTypes: [
+  'pdmsg'
+]
+
+folds: [
+  {
+    start: {type: '(', index: 0},
+    end: {type: ')', index: -1}
+  }
+]
+
+comments:
+  start: '//'
+
+scopes:
+  'program': 'source.pdmsg'
+
+  'comment': 'comment.line.pdmsg'
+
+  'keyword_identifier': 'keyword.control.statement.pdmsg'
+
+  'parenthesized > "("': 'punctuation.definition.expression.bracket.round.begin.pdmsg'
+  'parenthesized > ")"': 'punctuation.definition.expression.bracket.round.end.pdmsg'
+
+  'arguments > "("': 'punctuation.definition.argument.bracket.round.begin.pdmsg'
+  'arguments > ")"': 'punctuation.definition.argument.bracket.round.end.pdmsg'
+
+  'connect_arguments > "("': 'punctuation.definition.connect.argument.bracket.round.begin.pdmsg'
+  'connect_arguments > ")"': 'punctuation.definition.connect.argument.bracket.round.end.pdmsg'
+  'connect_arguments > port': 'constant.numeric.pdmsg'
+  'connect_arguments > host': 'variable.parameter.pdmsg'
+
+  'message > "("': 'punctuation.definition.message.bracket.round.begin.pdmsg'
+  'message > ")"': 'punctuation.definition.message.bracket.round.end.pdmsg'
+
+  'subpatch_variable': 'variable.other.pdmsg'
+  'dollar_variable': 'variable.language.pdmsg'
+
+  'index_pattern > "["': 'punctuation.definition.array.bracket.square.begin.pdmsg'
+  'index_pattern > "]"': 'punctuation.definition.array.bracket.square.end.pdmsg'
+  'index': 'constant.numeric.pdmsg'
+
+  'string': 'string.quoted.pdmsg'
+  'function > name': 'entity.name.function.pdmsg'
+  'number': 'constant.numeric.pdmsg'
+
+  '''
+    "=",
+    "~",
+    "*",
+    "/",
+    "%",
+    "+",
+    "-",
+    "<<",
+    ">>",
+    "<",
+    "<=",
+    ">",
+    ">=",
+    "==",
+    "!=",
+    "&",
+    "^",
+    "|",
+    "&&",
+    "||",
+  ''': 'keyword.operator.pdmsg'
