@@ -16,6 +16,7 @@ export default class Rampcode {
     // this.parser = new Parser();
     // this.parser.setLanguage(require('tree-sitter-rampcode'));
     // this.pdsends = new Map();
+    atom.notifications.addSuccess('pdmsg has started.');
   }
 
   stop(): void {
@@ -29,6 +30,7 @@ export default class Rampcode {
     // this.pdsends?.forEach((pdsend) => pdsend.kill());
     // this.pdsends?.clear();
     // this.pdsends = null;
+    atom.notifications.addSuccess('pdmsg has stopped.');
   }
 
   toggle(): void {
