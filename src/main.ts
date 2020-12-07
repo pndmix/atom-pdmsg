@@ -1,8 +1,10 @@
 import { CompositeDisposable } from 'atom';
 import Rampcode from './rampcode';
+import AutocompleteProvider from './autocomplete-provider';
 
-let rampcode: Rampcode;
-let subscriptions: CompositeDisposable;
+let rampcode: Rampcode | null = null;
+let subscriptions: CompositeDisposable | null = null;
+let autocomplete: AutocompleteProvider | null = null;
 
 module.exports = {
   config: {
@@ -24,13 +26,12 @@ module.exports = {
 
   activate(): void {
     rampcode = new Rampcode();
-
     subscriptions = new CompositeDisposable();
     subscriptions.add(
       atom.commands.add('atom-workspace', {
-        'atom-rampcode:toggle': () => rampcode.toggle(),
-        'atom-rampcode:evalLine': () => rampcode.evalLine(),
-        'atom-rampcode:evalBlock': () => rampcode.evalBlock(),
+        'atom-rampcode:toggle': () => rampcode!.toggle(),
+        'atom-rampcode:evalLine': () => rampcode!.evalLine(),
+        'atom-rampcode:evalBlock': () => rampcode!.evalBlock(),
       })
     );
   },
@@ -40,7 +41,16 @@ module.exports = {
   },
 
   deactivate(): void {
-    rampcode.stop();
-    subscriptions.dispose();
+    rampcode!.stop();
+    subscriptions!.dispose();
+
+    rampcode = null;
+    subscriptions = null;
+    autocomplete = null;
+  },
+
+  getProvider() {
+    autocomplete = new AutocompleteProvider();
+    return autocomplete;
   },
 };

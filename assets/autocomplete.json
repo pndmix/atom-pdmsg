@@ -1,0 +1,269 @@
+[
+  {
+    "displayText": "connect",
+    "snippet": "C(${1:<port>}, ${2:localhost}) << ( $3 )",
+    "description": "send messages to pd",
+    "type": "snippet",
+    "rightLabel": "new message"
+  },
+  {
+    "displayText": "$i",
+    "snippet": "$i${1:1}",
+    "description": "integer",
+    "type": "variable"
+  },
+  {
+    "displayText": "$f",
+    "snippet": "$f${1:1}",
+    "description": "float",
+    "type": "variable"
+  },
+  {
+    "displayText": "$s",
+    "snippet": "$s${1:1}",
+    "description": "symbol",
+    "type": "variable"
+  },
+  {
+    "displayText": "$v",
+    "snippet": "$v${1:1}",
+    "description": "signal",
+    "type": "variable"
+  },
+  {
+    "displayText": "$x",
+    "snippet": "$x${1:1}",
+    "description": "sample of input signal",
+    "type": "variable"
+  },
+  {
+    "displayText": "$y",
+    "snippet": "$y${1:1}",
+    "description": "sample of output signal",
+    "type": "variable"
+  },
+  {
+    "displayText": "if",
+    "snippet": "if($1, $2, $3)$4",
+    "description": "conditional",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "int",
+    "snippet": "int($1)$2",
+    "description": "convert to integer",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "rint",
+    "snippet": "rint($1)$2",
+    "description": "round a float to a near by integer",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "float",
+    "snippet": "float($1)$2",
+    "description": "convert to float",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "min",
+    "snippet": "min($1, $2)$3",
+    "description": "minimum",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "max",
+    "snippet": "max($1, $2)$3",
+    "description": "maximum",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "abs",
+    "snippet": "abs($1)$2",
+    "description": "absolute value",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "floor",
+    "snippet": "floor($1)$2",
+    "description": "largest integer value not greater than argument",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "ceil",
+    "snippet": "ceil($1)$2",
+    "description": "smallest integer value not less than argument",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "fmod",
+    "snippet": "fmod($1)$2",
+    "description": "floating point modulo",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "pow",
+    "snippet": "pow($1, $2)$3",
+    "description": "power",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "sqrt",
+    "snippet": "sqrt($1)$2",
+    "description": "square root",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "cbrt",
+    "snippet": "cbrt($1)$2",
+    "description": "cube root",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "exp",
+    "snippet": "exp($1)$2",
+    "description": "exponential",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "expm1",
+    "snippet": "expm1($1)$2",
+    "description": "exponential minus 1",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "log",
+    "snippet": "log($1)$2",
+    "description": "natural log",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "log1p",
+    "snippet": "log1p($1)$2",
+    "description": "logarithm of 1 plus",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "log10",
+    "snippet": "log10($1)$2",
+    "description": "log base 10",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "fact",
+    "snippet": "fact($1)$2",
+    "description": "factorial",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "sin",
+    "snippet": "sin($1)$2",
+    "description": "sine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "cos",
+    "snippet": "cos($1)$2",
+    "description": "cosine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "tan",
+    "snippet": "tan($1)$2",
+    "description": "tangent",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "asin",
+    "snippet": "asin($1)$2",
+    "description": "arc sine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "acos",
+    "snippet": "acos($1)$2",
+    "description": "arc cosine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "atan",
+    "snippet": "atan($1)$2",
+    "description": "arc tangent",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "atan2",
+    "snippet": "atan2($1, $2)$3",
+    "description": "arc tangent of 2 variables",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "sinh",
+    "snippet": "sinh($1)$2",
+    "description": "hyperbolic sine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "cosh",
+    "snippet": "cosh($1)$2",
+    "description": "hyperbolic cosine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "tanh",
+    "snippet": "tanh($1)$2",
+    "description": "hyperbolic tangent",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "asinh",
+    "snippet": "asinh($1)$2",
+    "description": "inverse hyperbolic sine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "acosh",
+    "snippet": "acosh($1)$2",
+    "description": "inverse hyperbolic cosine",
+    "type": "function",
+    "rightLabel": "expr function"
+  },
+  {
+    "displayText": "atanh",
+    "snippet": "atanh($1)$2",
+    "description": "inverse hyperbolic tangent",
+    "type": "function",
+    "rightLabel": "expr function"
+  }
+]

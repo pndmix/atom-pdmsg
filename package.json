@@ -36,5 +36,12 @@
     "watch": "tsc -w",
     "lint": "eslint src/**/*.ts && prettier -c **/*.{ts,less,json,yml}",
     "format": "eslint --fix src/**/*.ts && prettier --write **/*.{ts,less,json,yml}"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
+    }
   }
 }
