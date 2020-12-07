@@ -6,12 +6,12 @@ export default class Logger {
   constructor(title?: string) {
     this.panel = new MessagePanelView({ title });
     this.panel.attach();
-    this.panel.toggleAutoScroll();
+    this.panel.toggle();
   }
 
   log(options: PlainMessageOptions): void {
+    this.panel?.clear();
     this.panel?.add(new PlainMessageView(options));
-    this.panel?.updateScroll();
   }
 
   success(message: string): void {

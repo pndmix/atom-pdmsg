@@ -11,16 +11,14 @@ export default class Rampcode {
   // private pdsends: Map<string, Pdsend> | null = null;
 
   start(): void {
-    console.log('start pdmsg');
     this.editor = new Editor();
-    this.logger = new Logger();
+    this.logger = new Logger('pdmsg >>>');
     // this.parser = new Parser();
     // this.parser.setLanguage(require('tree-sitter-rampcode'));
     // this.pdsends = new Map();
   }
 
   stop(): void {
-    console.log('stop pdmsg');
     this.editor = null;
 
     this.logger?.close();

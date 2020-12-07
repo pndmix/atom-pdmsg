@@ -7,6 +7,7 @@ declare module 'atom-message-panel' {
     public updateScroll(): void;
     public add(view: PlainMessageView): void;
     public close(): void;
+    public clear(): void;
   }
 
   export type PlainMessageOptions = {
