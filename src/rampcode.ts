@@ -1,19 +1,19 @@
 import Editor from './editor';
+import Logger from './logger';
 // import Parser from './parser';
-// import Logger from './logger';
 // import Pdsend from './pdsend';
 
 export default class Rampcode {
   private state = { isActive: false };
   private editor: Editor | null = null;
-  // private logger: Logger | null = null;
+  private logger: Logger | null = null;
   // private parser: Parser | null = null;
   // private pdsends: Map<string, Pdsend> | null = null;
 
   start(): void {
     console.log('start pdmsg');
     this.editor = new Editor();
-    // this.logger = new Logger();
+    this.logger = new Logger();
     // this.parser = new Parser();
     // this.parser.setLanguage(require('tree-sitter-rampcode'));
     // this.pdsends = new Map();
@@ -23,8 +23,8 @@ export default class Rampcode {
     console.log('stop pdmsg');
     this.editor = null;
 
-    // this.logger?.close();
-    // this.logger = null;
+    this.logger?.close();
+    this.logger = null;
     //
     // this.parser = null;
     //
@@ -58,12 +58,16 @@ export default class Rampcode {
   // }
 
   evalLine(): void {
-    return console.log(this.editor!.getLineOfText());
+    const message = this.editor?.getLineOfText() || '';
+    console.log(message);
+    this.logger?.success(message);
     // return this.eval(Editor.getLineOfText());
   }
 
   evalBlock(): void {
-    return console.log(this.editor!.getBlockOfText());
+    const message = this.editor?.getBlockOfText() || '';
+    console.log(message);
+    this.logger?.success(message);
     // return this.eval(Editor.getBlockOfText());
   }
 }

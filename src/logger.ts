@@ -10,9 +10,8 @@ export default class Logger {
   }
 
   log(options: PlainMessageOptions): void {
-    if (this.panel === null) return;
-    this.panel.add(new PlainMessageView(options));
-    this.panel.updateScroll();
+    this.panel?.add(new PlainMessageView(options));
+    this.panel?.updateScroll();
   }
 
   success(message: string): void {
@@ -36,9 +35,7 @@ export default class Logger {
   }
 
   close(): void {
-    if (this.panel !== null) {
-      this.panel.close();
-      this.panel = null;
-    }
+    this.panel?.close();
+    this.panel = null;
   }
 }
