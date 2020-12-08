@@ -6,6 +6,6 @@ export default class AutocompleteProvider {
     constructor();
     getPrefix(editor: TextBuffer, bufferPosition: Point): string;
     inflateSuggestion(replacementPrefix: string, suggestion: Suggestion): Suggestion;
-    getSuggestions(option: SuggestionOption): Suggestion[] | null;
+    getSuggestions(option: SuggestionOption): Suggestion[];
 }
 //# sourceMappingURL=autocomplete-provider.d.ts.map

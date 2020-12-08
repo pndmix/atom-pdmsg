@@ -23,11 +23,11 @@ export default class AutocompleteProvider {
     return { ...suggestion };
   }
 
-  getSuggestions(option: SuggestionOption): Suggestion[] | null {
+  getSuggestions(option: SuggestionOption): Suggestion[] {
     const { editor, bufferPosition } = option;
     const prefix = this.getPrefix(editor, bufferPosition);
 
-    if (prefix.length < 1) return null;
+    if (prefix.length < 1) return [];
 
     const matchedSuggestions = suggestions.filter((suggestion) => {
       return suggestion.displayText!.startsWith(prefix);
