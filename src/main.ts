@@ -1,10 +1,8 @@
 import { CompositeDisposable } from 'atom';
 import Rampcode from './rampcode';
-import AutocompleteProvider from './autocomplete-provider';
 
 let rampcode: Rampcode | null = null;
 let subscriptions: CompositeDisposable | null = null;
-let autocomplete: AutocompleteProvider | null = null;
 
 module.exports = {
   config: {
@@ -41,16 +39,10 @@ module.exports = {
   },
 
   deactivate(): void {
-    rampcode!.stop();
-    subscriptions!.dispose();
+    rampcode?.stop();
+    subscriptions?.dispose();
 
     rampcode = null;
     subscriptions = null;
-    autocomplete = null;
-  },
-
-  getProvider() {
-    autocomplete = new AutocompleteProvider();
-    return autocomplete;
   },
 };

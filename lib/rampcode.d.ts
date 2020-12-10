@@ -1,7 +1,7 @@
 export default class Rampcode {
     private state;
     private editor;
-    private logger;
+    private repl;
     start(): void;
     stop(): void;
     toggle(): void;
