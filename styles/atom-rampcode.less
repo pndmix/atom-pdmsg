@@ -1,7 +1,26 @@
-// @import "ui-variables";
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/syntax-variables.less
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
 @import 'syntax-variables';
+@import 'ui-variables';
 
 .eval-flash-rampcode {
   background-color: @syntax-selection-flash-color;
   opacity: 0.75;
+}
+
+.message-info-pdmsg {
+  color: @text-color-info;
+}
+
+.message-success-pdmsg {
+  color: @text-color-success;
+}
+
+.message-warning-pdmsg {
+  color: @text-color-warning;
+}
+
+.message-error-pdmsg {
+  color: @text-color-error;
 }

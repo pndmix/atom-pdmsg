@@ -16,7 +16,10 @@ export default class Pdsend {
     this.process = spawn(cmd, [String(this.port), this.host]);
 
     this.process.stderr.on('data', (data) => {
-      this.logger?.error(`@${this.host}:${this.port} ${data}`);
+      this.logger?.log({
+        message: `@${this.host}:${this.port} <span class="message-error-pdmsg">${data}</span>`,
+        raw: true,
+      });
     });
 
     this.process.on('close', (code) => {
@@ -35,7 +38,10 @@ export default class Pdsend {
 
   write(message: string): void {
     this.process?.stdin.write(message + '\n\n');
-    this.logger?.info(`@${this.host}:${this.port} ${message}`);
+    this.logger?.log({
+      message: `@${this.host}:${this.port} <span class="message-info-pdmsg">${message}</span>`,
+      raw: true,
+    });
   }
 
   close(): void {

@@ -15,22 +15,22 @@ export default class Logger {
   }
 
   success(message: string): void {
-    const className = 'message-success-rampcode';
+    const className = 'message-success-pdmsg';
     this.log({ message, className });
   }
 
   info(message: string): void {
-    const className = 'message-info-rampcode';
+    const className = 'message-info-pdmsg';
     this.log({ message, className });
   }
 
   error(message: string): void {
-    const className = 'message-error-rampcode';
+    const className = 'message-error-pdmsg';
     this.log({ message, className });
   }
 
   warning(message: string): void {
-    const className = 'message-warning-rampcode';
+    const className = 'message-warning-pdmsg';
     this.log({ message, className });
   }
 
