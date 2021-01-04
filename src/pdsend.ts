@@ -1,93 +1,46 @@
+import Logger from './logger';
 import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
 
-type Address = {
-  port: string;
-  host?: string;
-  protocol?: 'tcp' | 'udp';
-};
-
-const DEFAULT_ADDRESS: Address = {
-  port: atom.config.get('atom-rampcode.port') || '8080',
-};
-
 export default class Pdsend {
-  name: string;
-  address: Address;
+  readonly port: number;
+  readonly host: string;
+  private logger: Logger | null = null;
   private process: ChildProcessWithoutNullStreams | null = null;
 
-  constructor(address: Address = DEFAULT_ADDRESS, name?: string) {
-    this.address = { ...address };
-    this.name = name || address.port;
-    this.launchProcess();
-  }
+  constructor(port: number, host: string, logger: Logger | null) {
+    const cmd = atom.config.get('atom-rampcode.pdsendPath') || 'pdsend';
 
-  private getSpawnOptions(): string[] {
-    const port = this.address.port;
-    const host = this.address.host || 'localhost';
-    const protocol = this.address.protocol || 'tcp';
-    return [port, host, protocol];
-  }
-
-  launchProcess(): void {
-    const pdsend = atom.config.get('atom-rampcode.pdsendPath') || 'pdsend';
-    this.process = spawn(pdsend, this.getSpawnOptions());
+    this.port = port;
+    this.host = host;
+    this.logger = logger;
+    this.process = spawn(cmd, [String(this.port), this.host]);
 
     this.process.stderr.on('data', (data) => {
-      console.log(data);
+      this.logger?.error(`@${this.host}:${this.port} ${data}`);
     });
 
     this.process.on('close', (code) => {
-      if (code !== null) {
-        this.process = null;
-      }
+      if (code !== null) this.killProcess();
     });
+  }
 
-    // Logger.success(`Connect to ${this.name}.`);
+  private killProcess(): void {
+    this.process?.kill();
+    this.process = null;
   }
 
   hasProcess(): boolean {
     return this.process !== null;
   }
 
-  private static convertMessage(message: string): string {
-    const rules = [
-      {
-        search: /\/\/.*(\r?\n+)?|\/\*.*\*\//g,
-        value: '',
-      },
-      {
-        search: /\s/g,
-        value: '',
-      },
-      {
-        search: /\\,|,/g,
-        value: '\\,',
-      },
-      {
-        search: /@/g,
-        value: ' ',
-      },
-    ];
-    rules.forEach(({ search, value }) => {
-      message = message.replace(search, value);
-    });
-    return message;
-  }
-
   write(message: string): void {
-    if (this.process !== null) {
-      const newMessage = Pdsend.convertMessage(message);
-      console.log(newMessage);
-      this.process.stdin.write(newMessage + '\n\n');
-      // Logger.log({
-      //   message: `<span class="message-success-rampcode">${this.name} > </span> ${newMessage}`,
-      //   raw: true,
-      // });
-    }
+    this.process?.stdin.write(message + '\n\n');
+    this.logger?.info(`@${this.host}:${this.port} ${message}`);
   }
 
-  kill(): void {
-    this.process?.kill();
-    this.process = null;
+  close(): void {
+    this.killProcess();
+    this.logger?.close();
+    this.logger = null;
   }
 }

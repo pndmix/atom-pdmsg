@@ -1,9 +1,14 @@
 export default class Repl {
     private logger;
     private parser;
+    private pdsends;
     constructor();
     private getStatementNodes;
-    private parseStatementNode;
+    private parseConnect;
+    private parseMessage;
+    private parseSyntax;
+    private getPdsend;
+    private convertExpressions;
     eval(message: string): void;
     close(): void;
 }

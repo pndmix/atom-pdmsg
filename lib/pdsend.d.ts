@@ -1,19 +1,13 @@
-declare type Address = {
-    port: string;
-    host?: string;
-    protocol?: 'tcp' | 'udp';
-};
+import Logger from './logger';
 export default class Pdsend {
-    name: string;
-    address: Address;
+    readonly port: number;
+    readonly host: string;
+    private logger;
     private process;
-    constructor(address?: Address, name?: string);
-    private getSpawnOptions;
-    launchProcess(): void;
+    constructor(port: number, host: string, logger: Logger | null);
+    private killProcess;
     hasProcess(): boolean;
-    private static convertMessage;
     write(message: string): void;
-    kill(): void;
+    close(): void;
 }
-export {};
 //# sourceMappingURL=pdsend.d.ts.map
