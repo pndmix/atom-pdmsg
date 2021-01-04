@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "atom-message-panel": "^1.3.1",
+    "atom-package-deps": "^7.0.3",
     "tree-sitter": "^0.17.1",
     "tree-sitter-pdmsg": "^0.1.2"
   },
@@ -36,5 +37,8 @@
     "watch": "tsc -w",
     "lint": "eslint src/**/*.ts && prettier -c **/*.{ts,less,json,yml}",
     "format": "eslint --fix src/**/*.ts && prettier --write **/*.{ts,less,json,yml}"
-  }
+  },
+  "package-deps": [
+    "language-pdmsg"
+  ]
 }
