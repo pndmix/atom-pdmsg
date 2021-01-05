@@ -2,6 +2,7 @@ import Logger from './logger';
 import Parser from './parser';
 import Pdsend from './pdsend';
 import { SyntaxNode } from 'tree-sitter';
+import { ParseError } from './error';
 
 type PdMessage = {
   port: number;
@@ -34,10 +35,18 @@ export default class Repl {
 
   private getStatementNodes(message: string): SyntaxNode[] {
     const tree = this.parser!.parse(message);
+
+    if (tree.rootNode.hasError()) {
+      const errorNodes = Parser.getNodesByName(tree.rootNode, ['ERROR']);
+      const token = errorNodes.length === 0 ? '' : errorNodes[0].text;
+      throw new ParseError(`syntax error near unexpected token "${token}"`);
+    }
+
     const nodes: SyntaxNode[] = [];
     for (const namedChildNode of tree.rootNode.namedChildren) {
       if (namedChildNode.type !== 'comment') nodes.push(namedChildNode);
     }
+
     return nodes;
   }
 
@@ -105,18 +114,27 @@ export default class Repl {
   }
 
   eval(message: string): void {
-    const pdMessages = this.getStatementNodes(message).map((node) => this.parseSyntax(node));
+    try {
+      const pdMessages = this.getStatementNodes(message).map((node) => this.parseSyntax(node));
 
-    for (const pdMessage of pdMessages) {
-      const { port, host, expressions } = pdMessage;
-      const pdsend = this.getPdsend(port, host);
-      const message = this.convertExpressions(expressions);
-      pdsend.write(message);
+      for (const pdMessage of pdMessages) {
+        const { port, host, expressions } = pdMessage;
+        const pdsend = this.getPdsend(port, host);
+        const message = this.convertExpressions(expressions);
+        pdsend.write(message);
+      }
+
+      this.pdsends!.forEach((pdsend, name) => {
+        if (!pdsend.hasProcess()) this.pdsends!.delete(name);
+      });
+    } catch (e) {
+      if (e instanceof ParseError) {
+        console.error(e);
+        this.logger?.error(e.message);
+      } else {
+        throw e;
+      }
     }
-
-    this.pdsends!.forEach((pdsend, name) => {
-      if (!pdsend.hasProcess()) this.pdsends!.delete(name);
-    });
   }
 
   close(): void {
