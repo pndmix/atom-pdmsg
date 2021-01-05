@@ -87,15 +87,21 @@ export default class Repl {
   }
 
   private convertExpressions(expressions: string[][]): string {
-    const escapedExpressions = expressions.map((expression) => {
-      return expression
-        .map((elm) => {
-          ESCAPED_RULES.forEach((rule) => (elm = elm.replace(rule.search, rule.value)));
-          return elm;
+    return (
+      expressions
+        .map((expression) => {
+          return expression
+            .map((elm) => {
+              const matchString = elm.match(/^"(.+)"$/);
+              if (matchString !== null) return matchString[1];
+
+              ESCAPED_RULES.forEach((rule) => (elm = elm.replace(rule.search, rule.value)));
+              return elm;
+            })
+            .join(' ');
         })
-        .join(' ');
-    });
-    return escapedExpressions.join(';') + ';';
+        .join(';') + ';'
+    );
   }
 
   eval(message: string): void {
@@ -111,8 +117,6 @@ export default class Repl {
     this.pdsends!.forEach((pdsend, name) => {
       if (!pdsend.hasProcess()) this.pdsends!.delete(name);
     });
-
-    console.log(this.pdsends);
   }
 
   close(): void {

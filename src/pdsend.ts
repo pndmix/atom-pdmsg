@@ -16,14 +16,11 @@ export default class Pdsend {
     this.process = spawn(cmd, [String(this.port), this.host]);
 
     this.process.stderr.on('data', (data) => {
-      this.logger?.log({
-        message: `@${this.host}:${this.port} <span class="message-error-pdmsg">${data}</span>`,
-        raw: true,
-      });
+      this.logger?.error(`${data} @${this.host}:${this.port}`);
     });
 
     this.process.on('close', (code) => {
-      if (code !== null) this.killProcess();
+      if (code !== 0) this.killProcess();
     });
   }
 
@@ -38,10 +35,7 @@ export default class Pdsend {
 
   write(message: string): void {
     this.process?.stdin.write(message + '\n\n');
-    this.logger?.log({
-      message: `@${this.host}:${this.port} <span class="message-info-pdmsg">${message}</span>`,
-      raw: true,
-    });
+    this.logger?.log({ message });
   }
 
   close(): void {
