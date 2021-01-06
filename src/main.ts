@@ -1,7 +1,7 @@
 import { CompositeDisposable } from 'atom';
-import Rampcode from './rampcode';
+import App from './app';
 
-let rampcode: Rampcode | null = null;
+let app: App | null = null;
 let subscriptions: CompositeDisposable | null = null;
 
 module.exports = {
@@ -17,19 +17,19 @@ module.exports = {
       title: 'Port number',
       description: '',
       type: 'integer',
-      default: 8080,
+      default: 3005,
       order: 2,
     },
   },
 
   activate(): void {
-    rampcode = new Rampcode();
+    app = new App();
     subscriptions = new CompositeDisposable();
     subscriptions.add(
       atom.commands.add('atom-workspace', {
-        'atom-rampcode:toggle': () => rampcode!.toggle(),
-        'atom-rampcode:evalLine': () => rampcode!.evalLine(),
-        'atom-rampcode:evalBlock': () => rampcode!.evalBlock(),
+        'atom-rampcode:toggle': () => app!.toggle(),
+        'atom-rampcode:evalLine': () => app!.evalLine(),
+        'atom-rampcode:evalBlock': () => app!.evalBlock(),
       })
     );
   },
@@ -39,10 +39,10 @@ module.exports = {
   },
 
   deactivate(): void {
-    rampcode?.stop();
+    app?.stop();
     subscriptions?.dispose();
 
-    rampcode = null;
+    app = null;
     subscriptions = null;
   },
 };

@@ -1,7 +1,7 @@
 import Editor from './editor';
 import Repl from './repl';
 
-export default class Rampcode {
+export default class App {
   private state = { isActive: false };
   private editor: Editor | null = null;
   private repl: Repl | null = null;

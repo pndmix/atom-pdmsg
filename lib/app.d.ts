@@ -1,4 +1,4 @@
-export default class Rampcode {
+export default class App {
     private state;
     private editor;
     private repl;
@@ -8,4 +8,4 @@ export default class Rampcode {
     evalLine(): void;
     evalBlock(): void;
 }
-//# sourceMappingURL=rampcode.d.ts.map
+//# sourceMappingURL=app.d.ts.map
