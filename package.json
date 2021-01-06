@@ -1,5 +1,5 @@
 {
-  "name": "atom-rampcode",
+  "name": "pdmsg",
   "main": "./lib/main",
   "version": "0.4.2",
   "description": "Rampcode on Atom.",
