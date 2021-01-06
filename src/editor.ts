@@ -6,7 +6,7 @@ export default class Editor {
 
     editor.decorateMarker(marker, {
       type: 'highlight',
-      class: 'eval-flash-rampcode',
+      class: 'eval-flash-pdmsg',
     });
     setTimeout(() => marker.destroy(), 200);
 

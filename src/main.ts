@@ -27,9 +27,9 @@ module.exports = {
     subscriptions = new CompositeDisposable();
     subscriptions.add(
       atom.commands.add('atom-workspace', {
-        'atom-rampcode:toggle': () => app!.toggle(),
-        'atom-rampcode:evalLine': () => app!.evalLine(),
-        'atom-rampcode:evalBlock': () => app!.evalBlock(),
+        'pdmsg:toggle': () => app!.toggle(),
+        'pdmsg:evalLine': () => app!.evalLine(),
+        'pdmsg:evalBlock': () => app!.evalBlock(),
       })
     );
   },

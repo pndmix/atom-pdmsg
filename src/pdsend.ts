@@ -8,7 +8,7 @@ export default class Pdsend {
   private process: ChildProcessWithoutNullStreams | null = null;
 
   constructor(port: number, host: string, logger: Logger | null) {
-    const cmd = atom.config.get('atom-rampcode.pdsendPath') || 'pdsend';
+    const cmd = atom.config.get('pdmsg.pdsendPath') || 'pdsend';
 
     this.port = port;
     this.host = host;

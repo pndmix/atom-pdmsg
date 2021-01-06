@@ -1,7 +1,0 @@
-{
-  "atom-workspace atom-text-editor[data-grammar~='pdmsg']:not([mini])": {
-    "ctrl-alt-r": "atom-rampcode:toggle",
-    "shift-enter": "atom-rampcode:evalLine",
-    "alt-enter": "atom-rampcode:evalBlock"
-  }
-}

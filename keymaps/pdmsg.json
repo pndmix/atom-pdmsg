@@ -1,0 +1,7 @@
+{
+  "atom-workspace atom-text-editor[data-grammar~='pdmsg']:not([mini])": {
+    "ctrl-alt-p": "pdmsg:toggle",
+    "shift-enter": "pdmsg:evalLine",
+    "alt-enter": "pdmsg:evalBlock"
+  }
+}
