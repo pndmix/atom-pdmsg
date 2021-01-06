@@ -2,7 +2,7 @@
   "name": "pdmsg",
   "main": "./lib/main",
   "version": "0.4.3",
-  "description": "Rampcode on Atom.",
+  "description": "Dynamic patching environment with Pd Internal Messages",
   "keywords": [
     "livecoding",
     "puredata"
