@@ -1,4 +1,7 @@
 # pdmsg
+[![apm version](https://img.shields.io/apm/v/pdmsg.svg)](https://atom.io/packages/pdmsg)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
 Dynamic patching environment with Pd Internal Messages. This package provides syntax highlighting, snippets and sending messages to Pd via pdsend when you write pdmsg code in Atom.
 
 #### Pd Internal Messages
