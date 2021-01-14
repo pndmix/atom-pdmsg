@@ -23,15 +23,19 @@ module.exports = {
   },
 
   activate(): void {
-    app = new App();
-    subscriptions = new CompositeDisposable();
-    subscriptions.add(
-      atom.commands.add('atom-workspace', {
-        'pdmsg:toggle': () => app!.toggle(),
-        'pdmsg:evalLine': () => app!.evalLine(),
-        'pdmsg:evalBlock': () => app!.evalBlock(),
-      })
-    );
+    require('atom-package-deps')
+      .install('pdmsg')
+      .then((): void => {
+        app = new App();
+        subscriptions = new CompositeDisposable();
+        subscriptions.add(
+          atom.commands.add('atom-workspace', {
+            'pdmsg:toggle': () => app!.toggle(),
+            'pdmsg:evalLine': () => app!.evalLine(),
+            'pdmsg:evalBlock': () => app!.evalBlock(),
+          })
+        );
+      });
   },
 
   serialize(): void {
