@@ -11,7 +11,7 @@ type PdMessage = {
 };
 
 const DEFAULT_MESSAGE: PdMessage = {
-  port: 8080,
+  port: 3001,
   host: 'localhost',
   expressions: [],
 };
@@ -19,6 +19,7 @@ const DEFAULT_MESSAGE: PdMessage = {
 const ESCAPED_RULES: { search: RegExp; value: string }[] = [
   { search: /\s/g, value: '' },
   { search: /\\,|,/g, value: '\\,' },
+  { search: /\\;|;/g, value: ' \\;' },
 ];
 
 export default class Repl {
@@ -96,21 +97,21 @@ export default class Repl {
   }
 
   private convertExpressions(expressions: string[][]): string {
-    return (
-      expressions
-        .map((expression) => {
-          return expression
-            .map((elm) => {
-              const matchString = elm.match(/^"(.+)"$/);
-              if (matchString !== null) return matchString[1];
+    const escapeExpression = (expr: string): string => {
+      ESCAPED_RULES.forEach((rule) => (expr = expr.replace(rule.search, rule.value)));
+      return expr;
+    };
 
-              ESCAPED_RULES.forEach((rule) => (elm = elm.replace(rule.search, rule.value)));
-              return elm;
-            })
-            .join(' ');
+    const messages = expressions.map((expression) => {
+      return expression
+        .map((elm) => {
+          const found = elm.match(/^"(?<expr>.+)"$/) || elm.match(/^'(?<expr>.+)'$/);
+          return found === null ? escapeExpression(elm) : found.groups!['expr'];
         })
-        .join(';') + ';'
-    );
+        .join(' ');
+    });
+
+    return messages.join(';') + ';';
   }
 
   eval(message: string): void {
