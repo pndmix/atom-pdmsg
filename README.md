@@ -59,43 +59,43 @@ Running pdmsg:
 1. Press `shift-enter` or `ctrl-enter` to run this
 
 ### Examples
-Creating an instance of the pdmsg's connection allows you to communicate directly with Pd, i.e. `Cn(port, [host])`. It is used with the insertion operator, and then this operator inserts a message which is defined as a tuple.
+Creating an instance of the pdmsg's connection allows you to communicate directly with Pd, i.e. `Cn(port, host=localhost)`. It is used with the insertion operator, and then this operator inserts a message which is defined as a tuple.
 ```c
-Cn(3005) << (pd-ex, clear) // Send 'pd-ex clear;' to port 3005 on the local.
+Cn(3001, localhost) << (pd-ex, clear) // Send 'pd-ex clear;' to port 3001 on the local.
 ```
 Send multiple messages by using the addition operator.
 ```c
-Cn(3005) << (pd-ex, clear) + (pd, dsp, 1) // Send 'pd-ex clear;pd dsp 1;'
+Cn(3001, localhost) << (pd-ex, clear) + (pd, dsp, 1) // Send 'pd-ex clear;pd dsp 1;'
 ```
 
 ##### Put a object
 ```c
-Cn(3005) << (pd-ex, obj, 10, 10, osc~, 440)
+Cn(3001) << (pd-ex, obj, 10, 10, osc~, 440)
 ```
 
 ##### Put a message
 ```c
-Cn(3005) << (pd-ex, msg, 10, 50, 220)
+Cn(3001) << (pd-ex, msg, 10, 50, 220)
 ```
 
 ##### Put a number
 ```c
-Cn(3005) << (pd-ex, floatatom, 10, 100)
+Cn(3001) << (pd-ex, floatatom, 10, 100)
 ```
 
 ##### Put a symbol
 ```c
-Cn(3005) << (pd-ex, symbolatom, 10, 130)
+Cn(3001) << (pd-ex, symbolatom, 10, 130)
 ```
 
 ##### Put a comment
 ```c
-Cn(3005) << (pd-ex, text, 100, 10, "This is a comment")
+Cn(3001) << (pd-ex, text, 100, 10, "This is a comment")
 ```
 
 ##### Build a sine wave generator
 ```c
-Cn(3005) << (pd-ex, clear) // Clear a canvas
+Cn(3001) << (pd-ex, clear) // Clear a canvas
   + (pd-ex, obj, 10, 10, osc~, 440) + (pd-ex, obj, 10, 60, dac~) // Put objects
   + (pd-ex, connect, 0, 0, 1, 0) + (pd-ex, connect, 0, 0, 1, 1) // Connect them
   + (pd, dsp, 1) // Turn on audio
